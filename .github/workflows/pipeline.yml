@@ -33,7 +33,7 @@ jobs:
       - name: e2e tests
         uses: cypress-io/github-action@v2
         env:
-          CYPRESS_INVITE_KEY: ${{ secrets.INVITE_KEY }}
+          INVITE_KEY: ${{ secrets.INVITE_KEY }}
           MONGODB_URI: ${{ secrets.MONGODB_URI }}
           PORT: ${{ secrets.PORT }}
           TEST_MONGODB_URI: ${{ secrets.TEST_MONGODB_URI }}
