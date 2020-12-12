@@ -12,6 +12,7 @@
 /build
 .env
 cypress.env.json
+heroku_auth.txt
 
 # misc
 .DS_Store
