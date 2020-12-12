@@ -1,0 +1,42 @@
+@font-face {
+    font-family: 'Alata';
+    src: local('Alata-Regular'), url(./assets/fonts/Alata-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Average Sans';
+    src: local('Average-Sans'), url(./assets/fonts/AverageSans-Regular.ttf)
+}
+
+h1, h2, h3 {
+    font-family: 'Alata';
+}
+
+body {
+    font-family: 'Average Sans';
+    font-size: 1.25em;
+    line-height: 1.2;
+}
+
+.home {
+    font-size: 1.1em;
+}
+
+#navMenu {
+    background: skyblue;
+    padding: 20px 5px;
+    margin-bottom: 10px;
+}
+
+#navMenu button {
+    margin-left: 10px;
+}
+
+#navMenu form {
+    display: inline-block;
+}
+
+.newNoteForm * button {
+    display: inline;
+    margin-top: 10px;
+}

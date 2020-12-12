@@ -1,0 +1,9 @@
+PUT http://localhost:3001/api/blogs/5f779c2d175d9f2f82d0dcb8
+Content-Type: application/json
+
+{
+    "title": "Top 10 Best Medieval Foods",
+    "author": "Jim Dixon",
+    "url": "medievalblog.com/453631/medieval_foods.html",
+    "likes": 18
+}

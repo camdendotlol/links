@@ -1,0 +1,2 @@
+POST http://localhost:3001/api/blogs/5fac8efa67243d50470cb187/like
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNhbWRlbiIsImlkIjoiNWY3ZTczMTU2MGE3NGI1MTk1Njg5NzU1IiwiaWF0IjoxNjA1MTUwMDU5fQ.W_Ir84vq9N07R1ciPkwQIf0dbzu3S6BfzEVAkdijL00
