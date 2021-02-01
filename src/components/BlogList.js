@@ -15,21 +15,28 @@ import {
 
 const BlogList = () => {
   const blogs = useSelector(({ blogs }) => blogs)
+  const user = useSelector(({ user }) => user)
 
   const blogFormRef = useRef()
 
-  const blogForm = () => (
-    <Toggleable buttonLabel='new link' buttonId='addBlog' ref={blogFormRef} >
-      <AddBlogForm blogFormRef={blogFormRef} />
-    </Toggleable>
-  )
+  const handleForm = user => {
+    if (user) {
+      return (
+        <Toggleable buttonLabel='new link' buttonId='addBlog' ref={blogFormRef} >
+          <AddBlogForm blogFormRef={blogFormRef} />
+        </Toggleable>
+      )
+    } else {
+      return null
+    }
+  }
 
   return(
     <div>
       <h2>Links</h2>
       <p>sorted by likes</p>
       <div style={{ marginBottom: '20px' }}>
-        {blogForm()}
+        { handleForm(user) }
       </div>
       <TableContainer component={Paper}>
         <Table>

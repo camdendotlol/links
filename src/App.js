@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 
-import LoginForm from './components/LoginForm'
 import Notification from './components/Notification'
 import BlogList from './components/BlogList'
 import SingleUser from './components/SingleUser'
 import Users from './components/Users'
 import SingleLink from './components/SingleLink'
 import Home from './components/Home'
+import LoginForm from './components/LoginForm'
 import RegisterForm from './components/RegisterForm'
 
 import { initializeBlogs } from './reducers/blogReducer'
@@ -38,6 +39,7 @@ const theme = createMuiTheme({
 
 const App = () => {
   const dispatch = useDispatch()
+  const history = useHistory()
 
   useEffect(() => {
     dispatch(initializeUser())
@@ -72,15 +74,23 @@ const App = () => {
     ? blogs.find(blog => blog.id === String(linkMatch.params.id))
     : null
 
-  if (!user) {
-    return (
-      <div>
-        <h2>Welcome. Please sign in to view this application.</h2>
-        <Notification />
-        <LoginForm />
-        <RegisterForm />
-      </div>
-    )
+  const handleUser = user => {
+    if (user) {
+      return (
+        <>
+          <Typography>Hello, {user.name}</Typography>
+          <Button id="logout" color="inherit" onClick={handleLogout}>Log out</Button>
+        </>
+      )
+    } else {
+      return (
+        <>
+          <Typography>Not logged in</Typography>
+          <Button id="login" color="inherit" onClick={ () => history.push('/login') }>Log in</Button>
+          <Button id="register" color="inherit" onClick={ () => history.push('/register') }>Register</Button>
+        </>
+      )
+    }
   }
 
   return (
@@ -92,14 +102,19 @@ const App = () => {
             <Button color="inherit" component={Link} to="/users">Users</Button>
             <Button color="inherit" component={Link} to="/about">About</Button>
             <div style={{ flexGrow: 1 }}></div>
-            <Typography>Hello, {user.name}</Typography>
-            <Button id="logout" color="inherit" onClick={handleLogout}>Log out</Button>
+            { handleUser(user) }
           </Toolbar>
         </AppBar>
 
         <Notification />
 
         <Switch>
+          <Route path="/login">
+            <LoginForm />
+          </Route>
+          <Route path="/register">
+            <RegisterForm />
+          </Route>
           <Route path="/links/:id">
             <SingleLink link={linkToShow}/>
           </Route>

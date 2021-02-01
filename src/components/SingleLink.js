@@ -20,11 +20,17 @@ const SingleLink = ({ link }) => {
     return null
   }
 
-  // console.log('user likes:')
-  // console.log(user.likes.toString())
-
-  // console.log('link likes:')
-  // console.log(link.id.toString())
+  const handleLikes = user => {
+    if (user) {
+      return (
+        <Typography style={{ textAlign: 'center', marginRight: '15px' }}>
+          <span onClick={toggleLike} style={{ cursor: 'pointer' }}>{chooseLikeButtonImg()}<br />{link.likes} likes</span>
+        </Typography>
+      )
+    } else {
+      return null
+    }
+  }
 
   const isLiked = () => {
     if (user.likes.toString().includes(link.id.toString())) {
@@ -51,7 +57,7 @@ const SingleLink = ({ link }) => {
   }
 
   const showDeleteButton = () => {
-    if (link.user.username === user.username) {
+    if (user && link.user.username === user.username) {
       return (
         <span onClick={deleteLink} style={{ cursor: 'pointer', position: 'relative', top: '2px' }}>
           <svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -83,7 +89,6 @@ const SingleLink = ({ link }) => {
   }
 
   const toggleLike = async () => {
-    console.log(`liked? ${isLiked()}`)
     if (!isLiked()) {
       await dispatch(likeBlog(link))
     } else {
@@ -95,9 +100,7 @@ const SingleLink = ({ link }) => {
     <div>
       <Card>
         <CardContent style={{ display: 'flex', alignItems: 'center' }}>
-          <Typography style={{ textAlign: 'center', marginRight: '15px' }}>
-            <span onClick={toggleLike} style={{ cursor: 'pointer' }}>{chooseLikeButtonImg()}<br />{link.likes} likes</span>
-          </Typography>
+          { handleLikes(user) }
           <div>
             <Typography color="textSecondary">
               <p style={{ marginBottom: 0, marginTop: 0 }}>shared by {link.user.name} {showDeleteButton()}</p>

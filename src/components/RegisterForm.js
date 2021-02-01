@@ -2,11 +2,13 @@ import React, { useState } from 'react'
 
 import { TextField, Button } from '@material-ui/core'
 import { useDispatch } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 import { registerUser } from '../reducers/userReducer'
 import { createNotification } from '../reducers/notificationReducer'
 
 const RegisterForm = () => {
   const dispatch = useDispatch()
+  const history = useHistory()
 
   const [username, setUserName] = useState('')
   const [password, setPassword] = useState('')
@@ -36,6 +38,8 @@ const RegisterForm = () => {
         type: 'error'
       }, 5))
     }
+
+    history.goBack()
   }
 
   return (

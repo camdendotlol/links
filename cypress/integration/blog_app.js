@@ -11,14 +11,9 @@ describe('blog app', function() {
     cy.visit('http://localhost:3001')
   })
 
-  it('login form is shown', function() {
-    cy.contains('Welcome. Please sign in to view this application')
-    cy.contains('Username')
-    cy.contains('Password')
-  })
-
   describe('login', function() {
     it('succeeds with correct credentials', function() {
+      cy.get('#login').click()
       cy.get('#username').type('testuser')
       cy.get('#password').type('testtest')
       cy.get('#submitLogin').click()
@@ -27,6 +22,7 @@ describe('blog app', function() {
     })
 
     it('fails with incorrect credentials', function() {
+      cy.get('#login').click()
       cy.get('#username').type('testuser')
       cy.get('#password').type('wrongpassword')
       cy.get('#submitLogin').click()

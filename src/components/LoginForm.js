@@ -3,9 +3,11 @@ import { useDispatch } from 'react-redux'
 import { TextField, Button } from '@material-ui/core'
 import { logInUser } from '../reducers/userReducer'
 import { createNotification } from '../reducers/notificationReducer'
+import { useHistory } from 'react-router-dom'
 
 const LoginForm = () => {
   const dispatch = useDispatch()
+  const history = useHistory()
   const [username, setUserName] = useState('')
   const [password, setPassword] = useState('')
 
@@ -29,6 +31,7 @@ const LoginForm = () => {
       text: '',
       type: 'notification'
     }))
+    history.goBack()
   }
 
   return (

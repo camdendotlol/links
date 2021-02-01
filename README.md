@@ -11,3 +11,5 @@ I also added support for an invite key so I could allow user registration from t
 ## Known issues
 
 The like functionality still behaves strangely when you click the like button many times in quick succession. As mentioned above, the whole implementation is deeply flawed and I will rewrite it at some point.
+
+The frontend's error handling in forms is rather primitive. It manually checks if the server's response includes the text of a known error, and displays a corresponding notification. If serverside errors are changed, the frontend must be updated to account for them. My successor project, [Groupread](https://github.com/mythmakerseven/groupread), actually displays the error message directly from the server. Since Links is really just a portfolio project that won't change much in the future, I don't plan to spend time porting the Groupread implementation back to it.
