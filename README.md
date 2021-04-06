@@ -8,6 +8,8 @@ Looking back at it now, the implementation of the like system is really not up t
 
 I also added support for an invite key so I could allow user registration from the frontend without the threat of spam. The invite key is set via an ``INVITE_KEY`` environment variable in the backend.
 
+**Update (April 6, 2021):** I've added dependabot to ensure that Links continues running securely in the future. Although I will keep dependencies up-to-date, this project is not under active development.
+
 ## Known issues
 
 The like functionality still behaves strangely when you click the like button many times in quick succession. As mentioned above, the whole implementation is deeply flawed and I will rewrite it at some point.
