@@ -5,7 +5,7 @@
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "@material-ui/lab": "^4.0.0-alpha.56",
-    "@testing-library/user-event": "^7.2.1",
+    "@testing-library/user-event": "^13.1.1",
     "axios": "^0.21.1",
     "bcrypt": "^5.0.1",
     "cors": "^2.8.5",
@@ -58,7 +58,7 @@
     "@babel/plugin-transform-react-jsx": "^7.13.12",
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.6",
-    "cypress": "^5.4.0",
+    "cypress": "^7.0.0",
     "eslint-plugin-cypress": "^2.11.2",
     "eslint-plugin-jest": "^24.1.0",
     "nodemon": "^2.0.6",
