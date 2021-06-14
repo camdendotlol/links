@@ -58,7 +58,7 @@
     "@testing-library/jest-dom": "^5.13.0",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^13.1.9",
-    "cypress": "^7.3.0",
+    "cypress": "^7.5.0",
     "eslint-plugin-cypress": "^2.11.2",
     "eslint-plugin-jest": "^24.3.6",
     "nodemon": "^2.0.6",
