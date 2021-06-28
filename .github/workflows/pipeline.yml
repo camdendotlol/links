@@ -16,12 +16,12 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '16'
-      - name: npm install
-        run: npm install
+      - name: yarn install
+        run: yarn install
       - name: lint
-        run: npm run eslint
+        run: yarn eslint
       - name: build
-        run: npm run build
+        run: yarn build
       - name: test
         env:
           INVITE_KEY: ${{ secrets.INVITE_KEY }}
@@ -29,7 +29,7 @@ jobs:
           PORT: ${{ secrets.PORT }}
           TEST_MONGODB_URI: ${{ secrets.TEST_MONGODB_URI }}
           SECRET: ${{ secrets.SECRET }}
-        run: npm run test
+        run: yarn test
       - name: e2e tests
         uses: cypress-io/github-action@v2
         env:
@@ -41,8 +41,8 @@ jobs:
           SECRET: ${{ secrets.SECRET }}
         with:
           env: true
-          command: npm run test:e2e
-          start: npm run start:cypress
+          command: yarn test:e2e
+          start: yarn start:cypress
           wait-on: http://localhost:3001
       - name: deploy on heroku
         if: ${{ github.event_name == 'push' && !contains(join(github.event.commits.*.message, ', '), '#skip') }}
