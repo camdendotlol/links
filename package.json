@@ -61,7 +61,7 @@
     "cypress": "^7.6.0",
     "eslint-plugin-cypress": "^2.11.2",
     "eslint-plugin-jest": "^24.3.6",
-    "nodemon": "^2.0.6",
+    "nodemon": "^2.0.9",
     "supertest": "^6.1.3"
   }
 }
